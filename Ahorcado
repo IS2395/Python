@@ -1,0 +1,70 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN3LLXi0yol8fCcTYzFh5YR",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/IS2395/Python/blob/main/Ahorcado\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "OgooCUYdeaCJ"
+      },
+      "outputs": [],
+      "source": [
+        "palabra='secreto'\n",
+        "print(f'Adivina la palabra secreta de {len(palabra)} letras')\n",
+        "\n",
+        "letras=[] #lista para guardar las letras ingresadas\n",
+        "vidas=3\n",
+        "separador='-'\n",
+        "palabra_descompuesta=[]\n",
+        "\n",
+        "for letra in range(len(palabra)):\n",
+        "  palabra_descompuesta.append('_  ')\n",
+        "\n",
+        "letras_usadas=len(palabra)\n",
+        "\n",
+        "while letras_usadas > 0 and vidas > 0:\n",
+        "  print(f'Tienes {vidas} vidas y las letras ingresadas son : {separador.join(letras)}')\n",
+        "  print(\"\".join(palabra_descompuesta))\n",
+        "  letra_usuario=input('Ingresa una letra: ')\n",
+        "  \n",
+        "  for char in range(len(palabra)):\n",
+        "    if letra_usuario == palabra[char]:\n",
+        "      palabra_descompuesta[char]=letra_usuario.upper()+\"\"\n",
+        "  \n",
+        "  if letra_usuario in letras:\n",
+        "    print('Ya ingresaste esa letra')\n",
+        "  else:\n",
+        "    letras.append(letra_usuario)\n",
+        "    if letra_usuario in palabra:\n",
+        "      letras_usadas=letras_usadas - palabra.count(letra_usuario)\n",
+        "      \n",
+        "\n"
+      ]
+    }
+  ]
+}
